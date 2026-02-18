@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #020617;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Hide default cursor for SunCursor */
+* {
+  cursor: none;
+}
