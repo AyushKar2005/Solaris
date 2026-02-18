@@ -24,17 +24,21 @@ export default function Contact() {
       const location = await locRes.json();
 
       // 2️⃣ Prepare payload
-      const payload = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        message: form.message.value,
+    const form = e.currentTarget;
+const formData = new FormData(form);
 
-        city: location.city,
-        region: location.region,
-        country: location.country_name,
-        ip: location.ip,
-      };
+const payload = {
+  name: formData.get("name") as string,
+  email: formData.get("email") as string,
+  phone: formData.get("phone") as string,
+  message: formData.get("message") as string,
+
+  city: location.city,
+  region: location.region,
+  country: location.country_name,
+  ip: location.ip,
+};
+
 
       // 3️⃣ Send to Google Apps Script
       const res = await fetch(GOOGLE_SCRIPT_URL, {
